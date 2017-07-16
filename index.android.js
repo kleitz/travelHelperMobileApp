@@ -11,11 +11,11 @@ import {
   Text,
   View
 } from 'react-native';
-import Login from "./build/Login"
+import App from "./build/App"
 export default class travelhelper extends Component {
   render() {
     return (
-      <Login/>
+      <App/>
     );
   }
 }
