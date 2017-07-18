@@ -9,7 +9,7 @@ export default class App extends React.Component<any,any>
 		return (
 			<Router createReducer={reducerCreator} tintColor='red'>
 				<Scene key={routingKey.root}>
-					<Scene key={routingKey.login} component={Login} title="Login" type="replace"/>
+					<Scene key={routingKey.login} component={Login} type='replace' initial={true} hideNavBar={true}/>
 				</Scene>
 			</Router>
 		)
