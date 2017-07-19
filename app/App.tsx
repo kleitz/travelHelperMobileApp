@@ -1,8 +1,9 @@
 import * as React from 'react';
 import {Scene,Router,Actions,Reducer} from 'react-native-router-flux';
+import { connect } from 'react-redux'
 import Login from "./Login"
 import routingKey from "./constant/routingKey"
-export default class App extends React.Component<any,any>
+class App extends React.Component<any,any>
 {
 	render() 
 	{
@@ -26,3 +27,4 @@ function reducerCreator(params)
 		return defaultReducer(state, action);
 	};
 }
+export default connect((store)=>store)(App);

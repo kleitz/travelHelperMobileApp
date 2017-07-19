@@ -79,6 +79,7 @@ let Resource=
     analytics:"分析",
     positiveOrder:"正序",
     searchPositionFail:"地圖找不到",
+    signUpText:"很想要吧?",
 }
 
 let Resource_en_US=
@@ -162,6 +163,7 @@ let Resource_en_US=
     analytics:"analytics",
     positiveOrder:"positiveOrder",
     searchPositionFail:"not found",
+    signUpText:"很想要吧?",
 }
 
 export default Resource;
