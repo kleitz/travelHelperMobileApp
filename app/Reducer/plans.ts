@@ -1,7 +1,7 @@
 import * as actionList from "../Action"
 import * as store from "./storeInitial"
 import { Action } from "redux"
-import {Plan , TravelRecord} from "../../Model/Plan";
+import {Plan , TravelRecord} from "../Model/Plan";
 
 export default function plans(state = store.initialState.plans, action) 
 {

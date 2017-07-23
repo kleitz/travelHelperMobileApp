@@ -1,10 +1,11 @@
 const routingKey=
 {
     root:"root",
-    login:"login",
-    logout:"logout",
+    logIn:"logIn",
+    logOut:"logOut",
     mapData:"mapData",
     plan:"plan",
     planMap:"planMap",
+    signUp:"signUp",
 }
 export default routingKey;

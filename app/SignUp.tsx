@@ -9,7 +9,7 @@ import {MKButton,MKTextField,MKColor} from "react-native-material-kit";
 import {Scene,Router,Actions,Reducer} from 'react-native-router-flux';
 import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import routingKey from "./Constant/routingKey"
+
 interface props
 {
     login:Store.Login;
@@ -20,6 +20,9 @@ interface state
 {
     account:string;
     password:string;
+    email:string;
+    userName:string;
+
 }
 
 const portraitStyle=StyleSheet.create(
@@ -48,7 +51,7 @@ const landscapeStyle=StyleSheet.create(
 });
 
 
-class Login extends React.Component<props,state>
+class SignUp extends React.Component<props,state>
 {
     constructor(props)
     {
@@ -57,10 +60,13 @@ class Login extends React.Component<props,state>
         {
             account:"",
             password:"",
+            userName:"",
+            email:"",
         }
         this.accountChange=this.accountChange.bind(this);
         this.passwordChange=this.passwordChange.bind(this);
-        this.loginOnPress=this.loginOnPress.bind(this);
+        this.userNameChange=this.userNameChange.bind(this);
+        this.emailChange=this.emailChange.bind(this);
         this.signUpOnPress=this.signUpOnPress.bind(this);
     }
     render()
@@ -73,11 +79,10 @@ class Login extends React.Component<props,state>
                     <View style={style.form}>
                         <MKTextField onTextChange={this.accountChange} text={this.state.account} placeholder={Resource.account} floatingLabelEnabled={true} floatingLabelBottomMargin={0} highlightColor="#26A69A" tintColor="white" textInputStyle={style.textInputStyle} style={style.account} placeholderTextColor="white"/>
                         <MKTextField onTextChange={this.passwordChange} text={this.state.password} placeholder={Resource.password} floatingLabelEnabled={true} highlightColor="#26A69A" tintColor="white" textInputStyle={style.textInputStyle} style={style.password} placeholderTextColor="white" />
-                        <MKButton style={style.button} backgroundColor="#26A69A">
+                        <MKTextField onTextChange={this.userNameChange} text={this.state.userName} placeholder={Resource.userName} floatingLabelEnabled={true} highlightColor="#26A69A" tintColor="white" textInputStyle={style.textInputStyle} style={style.password} placeholderTextColor="white" />
+                        <MKTextField onTextChange={this.emailChange} text={this.state.email} placeholder={Resource.email} floatingLabelEnabled={true} highlightColor="#26A69A" tintColor="white" textInputStyle={style.textInputStyle} style={style.password} placeholderTextColor="white" />
+                        <MKButton style={style.button} backgroundColor="#26A69A" onPress={this.signUpOnPress}>
                             <Icon name="send" size={50} color="white" />
-                        </MKButton>
-                        <MKButton style={style.button} onPress={this.signUpOnPress}>
-                            <Text style={{color: "white",fontSize:30}}>{Resource.signUpText}</Text>
                         </MKButton>
                     </View>
                 </Image>
@@ -87,15 +92,12 @@ class Login extends React.Component<props,state>
 
     accountChange(v){this.setState({account:v})}
     passwordChange(v){this.setState({password:v});}
-
-    loginOnPress()
-    {
-
-    }
+    emailChange(v){this.setState({email:v});}
+    userNameChange(v){this.setState({userName:v});}
 
     signUpOnPress()
     {
-        Actions[routingKey.signUp]();
+        
     }
     componentWillMount()
     {
@@ -115,4 +117,4 @@ function mapStateToProps(state:Store.Stroe)
 
 
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(SignUp);

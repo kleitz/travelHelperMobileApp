@@ -3,10 +3,10 @@ import * as store from "./storeInitial"
 import { Action } from "redux"
 
 
-import Attraction from "../../Model/Attraction";
-import Traffic from "../../Model/Traffic";
-import Restaurant from "../../Model/Restaurant";
-import Souvenir from "../../Model/Souvenir";
+import Attraction from "../Model/Attraction";
+import Traffic from "../Model/Traffic";
+import Restaurant from "../Model/Restaurant";
+import Souvenir from "../Model/Souvenir";
 
 
 export default function mapData(state = store.initialState.mapData, action: Action) 

@@ -2,6 +2,7 @@ import * as React from 'react';
 import {Scene,Router,Actions,Reducer} from 'react-native-router-flux';
 import {Provider,connect } from 'react-redux'
 import Login from "./Login"
+import SignUp from "./SignUp"
 import routingKey from "./Constant/routingKey"
 import orientationConstant from "./Constant/orientation"
 import { createStore } from 'redux';
@@ -43,7 +44,8 @@ class Main extends React.Component<props,any>
 		return(
 			<Router createReducer={reducerCreator} tintColor='red'>
 				<Scene key={routingKey.root}>
-					<Scene key={routingKey.login} component={Login} type='replace' initial={true} hideNavBar={true} />
+					<Scene key={routingKey.logIn} component={Login} type='replace' initial={true} hideNavBar={true} />
+					<Scene key={routingKey.signUp} component={SignUp}/>
 				</Scene>
 			</Router>
 		)
@@ -54,7 +56,7 @@ class Main extends React.Component<props,any>
 	}
 	componentWillMount()
 	{
-
+		action.DeviceInfo.dispatchOrientationChange(this.props.dispatch,Orientation.getInitialOrientation());
 	}
 	componentDidMount()
 	{
